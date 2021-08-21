@@ -16,7 +16,9 @@
     <div class="message-content">
       <!-- 投稿したメッセージ内容を記述する -->
         <%= message.content %>
-
     </div>
+    <%# レコードにファイルが添付されているかどうかで、メッセージに画像が添付されているかをチェックするattached?というメソッドを使用 trueかfalseを返すメソッドです。 %>
+    <%# <%= image_tag message.image, class: 'message-image' if message.image.attached? %> 
+       <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
   </div>
 </div>
